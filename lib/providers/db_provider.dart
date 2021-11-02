@@ -93,4 +93,16 @@ class DBProvider { // singleton using static
     final res = await db.update('Scans', newScan.toMap(), where: 'id = ?', whereArgs: [newScan.id]);
     return res;
   }
+
+  Future<int> deleteScan(int id) async {
+    final db = await database;
+    final res = await db.delete('Scans', where: 'id = ?', whereArgs: [id]);
+    return res;
+  }
+
+  Future<int> deleteAllScans() async {
+    final db = await database;
+    final res = await db.delete('Scans');
+    return res;
+  }
 }
