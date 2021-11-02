@@ -4,6 +4,8 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'package:qr_scanner/models/scan_model.dart';
+export 'package:qr_scanner/models/scan_model.dart';
+
 
 class DBProvider { // singleton using static
   static Database? _database;
