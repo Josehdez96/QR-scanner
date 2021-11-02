@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_scanner/providers/ui_provider.dart';
+import 'package:qr_scanner/screens/maps_history.dart';
 import 'package:qr_scanner/widgets/custom_navigaton_bar.dart';
 import 'package:qr_scanner/widgets/scan_button.dart';
 
@@ -40,11 +41,11 @@ class _HomeScreenBody extends StatelessWidget {
 
     switch (currentIndex) {
       case 0:
-        return const MapScreen();
+        return const MapsHistoryScreen();
       case 1:
         return const DirectionsScreen();
       default:
-      return const MapScreen();
+      return const MapsHistoryScreen();
     }
   }
 }
