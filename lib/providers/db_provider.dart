@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import 'package:qr_scanner/models/scan_model.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'package:qr_scanner/models/scan_model.dart';
 
 class DBProvider { // singleton using static
   static Database? _database;
@@ -39,7 +40,26 @@ class DBProvider { // singleton using static
     );
   }
 
-  newScanRaw(ScanModel newScan) async {
-    
+  Future<int> newScanRaw(ScanModel newScan) async {
+
+    final id = newScan.id;
+    final type = newScan.type;
+    final value = newScan.value;
+
+    // verify db
+    final db = await database;
+    final res = await db.rawInsert(
+      '''
+      INSERT INTO Scans(id, tipo, valor)
+        VALUES($id, '$type', '$value')
+      '''
+    );
+    return res;
+  }
+
+  Future<int> newScan(ScanModel newScan) async {
+    final db = await database;
+    final res = await db.insert('Scans', newScan.toMap());
+    return res;
   }
 }
