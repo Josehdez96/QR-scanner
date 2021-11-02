@@ -62,4 +62,30 @@ class DBProvider { // singleton using static
     final res = await db.insert('Scans', newScan.toMap());
     return res;
   }
+
+  Future<ScanModel?> getScanById(int id) async {
+    final db = await database;
+    final res = await db.query('Scans', where: 'id = ?', whereArgs: [id]);
+    return res.isNotEmpty
+      ? ScanModel.fromMap(res.first)
+      : null;
+  }
+
+  Future<List<ScanModel>> getAllScans() async {
+    final db = await database;
+    final res = await db.query('Scans');
+    return res.isNotEmpty
+      ? res.map((scan) => ScanModel.fromMap(scan)).toList()
+      : [];
+  }
+
+  Future<List<ScanModel>> getScansByType(String type) async {
+    final db = await database;
+    final res = await db.rawQuery('''
+      SELECT * FROM Scans WHERE type = '$type'
+    ''');
+    return res.isNotEmpty
+      ? res.map((scan) => ScanModel.fromMap(scan)).toList()
+      : [];
+  }
 }
