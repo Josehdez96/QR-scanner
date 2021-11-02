@@ -41,7 +41,6 @@ class DBProvider { // singleton using static
   }
 
   Future<int> newScanRaw(ScanModel newScan) async {
-
     final id = newScan.id;
     final type = newScan.type;
     final value = newScan.value;
@@ -87,5 +86,11 @@ class DBProvider { // singleton using static
     return res.isNotEmpty
       ? res.map((scan) => ScanModel.fromMap(scan)).toList()
       : [];
+  }
+
+  Future<int> updateScan(ScanModel newScan) async {
+    final db = await database;
+    final res = await db.update('Scans', newScan.toMap(), where: 'id = ?', whereArgs: [newScan.id]);
+    return res;
   }
 }
