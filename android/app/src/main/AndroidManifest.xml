@@ -2,8 +2,7 @@
     package="com.example.qr_scanner">
    <application
         android:label="qr_scanner"
-        android:icon="@mipmap/ic_launcher"
-        android:name="androidx.multidex.MultiDexApplication">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
