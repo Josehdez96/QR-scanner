@@ -18,7 +18,7 @@ class CustomNavigationBar extends StatelessWidget {
       elevation: 0,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.map_outlined), label: 'Map'),
-        BottomNavigationBarItem(icon: Icon(Icons.compass_calibration_outlined), label: 'Directions'),
+        BottomNavigationBarItem(icon: Icon(Icons.compass_calibration_rounded), label: 'Directions'),
       ]
     );
   }
