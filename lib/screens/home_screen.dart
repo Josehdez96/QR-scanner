@@ -21,8 +21,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
-              scanListProvider.deleteAllScans();
+              Provider.of<ScanListProvider>(context, listen: false).deleteAllScans();
             }, 
             icon: const Icon(Icons.delete_sharp)
           )
