@@ -51,7 +51,7 @@ class DBProvider { // singleton using static
     final db = await database;
     final res = await db.rawInsert(
       '''
-      INSERT INTO Scans(id, tipo, valor)
+      INSERT INTO Scans(id, type, value)
         VALUES($id, '$type', '$value')
       '''
     );
