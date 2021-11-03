@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_scanner/widgets/custom_list_view.dart';
+import 'package:qr_scanner/widgets/scan_tiles.dart';
 
 class DirectionsScreen extends StatelessWidget {
   const DirectionsScreen({ Key? key }) : super(key: key);
@@ -7,6 +7,6 @@ class DirectionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return const CustomListView(icon: Icons.home);
+    return const ScanTiles(icon: Icons.home);
   }
 }
