@@ -19,7 +19,13 @@ class HomeScreen extends StatelessWidget {
         title: const Text('History'),
         elevation: 0,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.delete_sharp))
+          IconButton(
+            onPressed: () {
+              final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+              scanListProvider.deleteAllScans();
+            }, 
+            icon: const Icon(Icons.delete_sharp)
+          )
         ],
       ),
       body: const _HomeScreenBody(),

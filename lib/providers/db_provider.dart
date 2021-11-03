@@ -23,7 +23,6 @@ class DBProvider { // singleton using static
     // Path where DB will be store
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join( documentsDirectory.path, 'ScansDB.db' );
-    print(path);
 
     // Create the DB
     return await openDatabase(
