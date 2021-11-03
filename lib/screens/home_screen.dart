@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_scanner/providers/scan_list_provider.dart';
 import 'package:qr_scanner/providers/ui_provider.dart';
 import 'package:qr_scanner/screens/maps_history.dart';
 import 'package:qr_scanner/widgets/custom_navigaton_bar.dart';
 import 'package:qr_scanner/widgets/scan_button.dart';
 
 import 'directions_screen.dart';
-import 'map_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -38,11 +38,14 @@ class _HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentIndex = Provider.of<UiProvider>(context).selectedMenuOption;
+    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
 
     switch (currentIndex) {
       case 0:
+        scanListProvider.loadScansByType('geo');
         return const MapsHistoryScreen();
       case 1:
+        scanListProvider.loadScansByType('http');
         return const DirectionsScreen();
       default:
       return const MapsHistoryScreen();
