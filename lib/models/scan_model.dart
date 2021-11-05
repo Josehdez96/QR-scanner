@@ -5,6 +5,8 @@
 
 import 'dart:convert';
 
+import 'package:google_maps_flutter/google_maps_flutter.dart' show LatLng;
+
 class ScanModel {
     ScanModel({
         this.id,
@@ -21,6 +23,13 @@ class ScanModel {
     int? id;
     String? type;
     String value;
+
+    LatLng getLatLng() {
+      final latLng = value.substring(4).split(',');
+      final parsedLat = double.parse(latLng[0]);
+      final parsedLng = double.parse(latLng[1]);
+      return LatLng(parsedLat, parsedLng);
+    }
 
     factory ScanModel.fromJson(String str) => ScanModel.fromMap(json.decode(str));
 
