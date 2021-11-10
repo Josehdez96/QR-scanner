@@ -14,6 +14,9 @@
           android:name="com.google.android.geo.API_KEY"
           android:value="AIzaSyDuBKSfqxUci67-TObA2JLdC48QJ0Sg7DM"
         />
+        <meta-data
+        android:name="com.google.mlkit.vision.DEPENDENCIES"
+        android:value="ocr" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
