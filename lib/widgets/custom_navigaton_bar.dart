@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_scanner/providers/ui_provider.dart';
+import 'package:qr_scanner/providers/navigation_provider.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({ Key? key }) : super(key: key);
@@ -8,7 +8,7 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final uiProvider = Provider.of<UiProvider>(context);
+    final uiProvider = Provider.of<NavigationProvider>(context);
 
     return BottomNavigationBar(
       onTap: (index) {
