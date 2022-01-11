@@ -3,23 +3,23 @@ import 'package:provider/provider.dart';
 import 'package:qr_scanner/providers/navigation_provider.dart';
 
 class CustomNavigationBar extends StatelessWidget {
-  const CustomNavigationBar({ Key? key }) : super(key: key);
+  const CustomNavigationBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    final uiProvider = Provider.of<NavigationProvider>(context);
+    final navigationProvider = Provider.of<NavigationProvider>(context);
 
     return BottomNavigationBar(
       onTap: (index) {
-        uiProvider.selectedMenuOption = index;
+        navigationProvider.selectedMenuOption = index;
       },
-      currentIndex: uiProvider.selectedMenuOption,
+      currentIndex: navigationProvider.selectedMenuOption,
       elevation: 0,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.map_outlined), label: 'Map'),
-        BottomNavigationBarItem(icon: Icon(Icons.compass_calibration_rounded), label: 'Directions'),
-      ]
+        BottomNavigationBarItem(
+            icon: Icon(Icons.compass_calibration_rounded), label: 'Directions'),
+      ],
     );
   }
 }

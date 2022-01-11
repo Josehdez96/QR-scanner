@@ -22,17 +22,15 @@ class MyApp extends StatelessWidget {
         title: 'QR Reader',
         initialRoute: 'home',
         routes: {
-          'home': ( _ ) => const HomeScreen(),
-          'map': ( _ ) => const MapScreen()
+          'home': (_) => const HomeScreen(),
+          'map': (_) => const MapScreen()
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.deepPurple
-          ),
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.deepPurple),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
-            backgroundColor: Colors.deepPurple
-          )
+            backgroundColor: Colors.deepPurple,
+          ),
         ),
       ),
     );
