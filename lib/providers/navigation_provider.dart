@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UiProvider extends ChangeNotifier {
+class NavigationProvider extends ChangeNotifier {
   int _selectedMenuOption = 0;
 
   int get selectedMenuOption => _selectedMenuOption;

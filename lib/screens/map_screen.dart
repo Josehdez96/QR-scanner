@@ -5,7 +5,7 @@ import 'package:qr_scanner/providers/db_provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({ Key? key }) : super(key: key);
+  const MapScreen({Key? key}) : super(key: key);
 
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -18,20 +18,17 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     final scan = ModalRoute.of(context)?.settings.arguments as ScanModel;
-    final CameraPosition _initialCameraPosition = CameraPosition(
-    target: scan.getLatLng(),
-    zoom: 17,
-    tilt: 50
-  );
+    final CameraPosition _initialCameraPosition =
+        CameraPosition(target: scan.getLatLng(), zoom: 17, tilt: 50);
 
-  // Markers
-  Set<Marker> markers = <Marker>{};
-  markers.add(
-    Marker(
-      markerId: const MarkerId('geo-location'),
-      position: scan.getLatLng()
-    )
-  );
+    // Markers
+    Set<Marker> markers = <Marker>{};
+    markers.add(
+      Marker(
+        markerId: const MarkerId('geo-location'),
+        position: scan.getLatLng(),
+      ),
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -41,9 +38,11 @@ class _MapScreenState extends State<MapScreen> {
             icon: const Icon(Icons.location_searching_outlined),
             onPressed: () async {
               final GoogleMapController controller = await _controller.future;
-              controller.animateCamera(CameraUpdate.newCameraPosition(
-                CameraPosition( target: scan.getLatLng(), zoom: 17, tilt: 50 )
-              ));
+              controller.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(target: scan.getLatLng(), zoom: 17, tilt: 50),
+                ),
+              );
             },
           )
         ],
@@ -62,8 +61,8 @@ class _MapScreenState extends State<MapScreen> {
         onPressed: () {
           setState(() {
             (mapType == MapType.normal)
-              ? mapType = MapType.hybrid
-              : mapType = MapType.normal;
+                ? mapType = MapType.hybrid
+                : mapType = MapType.normal;
           });
         },
         child: const Icon(Icons.layers_rounded),
