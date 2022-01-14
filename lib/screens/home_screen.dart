@@ -9,7 +9,7 @@ import 'package:qr_scanner/widgets/scan_button.dart';
 import 'directions_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({ Key? key }) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {
-              Provider.of<ScanListProvider>(context, listen: false).deleteAllScans();
-            }, 
-            icon: const Icon(Icons.delete_sharp)
-          )
+              onPressed: () {
+                Provider.of<ScanListProvider>(context, listen: false)
+                    .deleteAllScans();
+              },
+              icon: const Icon(Icons.delete_sharp))
         ],
       ),
       body: const _HomeScreenBody(),
@@ -42,9 +42,12 @@ class _HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentIndex = Provider.of<NavigationProvider>(context).selectedMenuOption;
-    final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+    final currentIndex =
+        Provider.of<NavigationProvider>(context).selectedMenuOption;
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
 
+    print(currentIndex);
     switch (currentIndex) {
       case 0:
         scanListProvider.loadScansByType('geo');
@@ -53,7 +56,7 @@ class _HomeScreenBody extends StatelessWidget {
         scanListProvider.loadScansByType('http');
         return const DirectionsScreen();
       default:
-      return const MapsHistoryScreen();
+        return const MapsHistoryScreen();
     }
   }
 }
