@@ -47,7 +47,7 @@ class _HomeScreenBody extends StatelessWidget {
     final scanListProvider =
         Provider.of<ScanListProvider>(context, listen: false);
 
-    print(currentIndex);
+    print('HOLA SOY EL CURRENTINDEX: $currentIndex');
     switch (currentIndex) {
       case 0:
         scanListProvider.loadScansByType('geo');
