@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_scanner/bindings/navigation_binding.dart';
 import 'package:qr_scanner/providers/scan_list_provider.dart';
-import 'package:qr_scanner/providers/navigation_provider.dart';
 import 'package:qr_scanner/screens/home_screen.dart';
 import 'package:qr_scanner/screens/map_screen.dart';
 
@@ -13,18 +14,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => NavigationProvider()),
-        ChangeNotifierProvider(create: (_) => ScanListProvider())
-      ],
-      child: MaterialApp(
+      providers: [ChangeNotifierProvider(create: (_) => ScanListProvider())],
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'QR Reader',
-        initialRoute: 'home',
-        routes: {
-          'home': (_) => const HomeScreen(),
-          'map': (_) => const MapScreen()
-        },
+        initialRoute: '/home',
+        getPages: [
+          GetPage(
+            name: '/home',
+            page: () => const HomeScreen(),
+            binding: NavigationBinding(),
+          ),
+          GetPage(
+            name: '/map',
+            page: () => const MapScreen(),
+          )
+        ],
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
           appBarTheme: const AppBarTheme(backgroundColor: Colors.deepPurple),

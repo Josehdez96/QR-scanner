@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_scanner/providers/scan_list_provider.dart';
-import 'package:qr_scanner/providers/navigation_provider.dart';
+import 'package:qr_scanner/providers/navigation_controller.dart';
 import 'package:qr_scanner/screens/maps_history.dart';
 import 'package:qr_scanner/widgets/custom_navigaton_bar.dart';
 import 'package:qr_scanner/widgets/scan_button.dart';
@@ -35,28 +36,28 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class _HomeScreenBody extends StatelessWidget {
+class _HomeScreenBody extends GetView<NavigationController> {
   const _HomeScreenBody({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final currentIndex =
-        Provider.of<NavigationProvider>(context).selectedMenuOption;
     final scanListProvider =
         Provider.of<ScanListProvider>(context, listen: false);
 
-    print('HOLA SOY EL CURRENTINDEX: $currentIndex');
-    switch (currentIndex) {
-      case 0:
-        scanListProvider.loadScansByType('geo');
-        return const MapsHistoryScreen();
-      case 1:
-        scanListProvider.loadScansByType('http');
-        return const DirectionsScreen();
-      default:
-        return const MapsHistoryScreen();
-    }
+    return Obx(() {
+      print('HOLA SOY EL CURRENTINDEX: ${controller.selectedMenuOption}');
+      switch (controller.selectedMenuOption) {
+        case 0:
+          scanListProvider.loadScansByType('geo');
+          return const MapsHistoryScreen();
+        case 1:
+          scanListProvider.loadScansByType('http');
+          return const DirectionsScreen();
+        default:
+          return const MapsHistoryScreen();
+      }
+    });
   }
 }
