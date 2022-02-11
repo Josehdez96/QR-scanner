@@ -6,10 +6,7 @@ import 'package:qr_scanner/utils/utils.dart';
 class ScanTiles extends StatelessWidget {
   final IconData icon;
 
-  const ScanTiles({
-    Key? key,
-    required this.icon
-  }) : super(key: key);
+  const ScanTiles({Key? key, required this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +15,7 @@ class ScanTiles extends StatelessWidget {
 
     return ListView.builder(
       itemCount: scans.length,
-      itemBuilder: ( _, i ) => Dismissible(
+      itemBuilder: (_, i) => Dismissible(
         key: UniqueKey(),
         background: Container(
           color: Colors.red,
@@ -38,7 +35,7 @@ class ScanTiles extends StatelessWidget {
           trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.grey),
           onTap: () => launchURL(context, scans[i]),
         ),
-      )
+      ),
     );
   }
 }
