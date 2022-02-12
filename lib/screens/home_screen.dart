@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_scanner/providers/scan_list_controller.dart';
-import 'package:qr_scanner/providers/navigation_controller.dart';
+import 'package:qr_scanner/controllers/scan_list_controller.dart';
+import 'package:qr_scanner/controllers/navigation_controller.dart';
 import 'package:qr_scanner/screens/maps_history.dart';
 import 'package:qr_scanner/widgets/custom_navigaton_bar.dart';
 import 'package:qr_scanner/widgets/scan_button.dart';

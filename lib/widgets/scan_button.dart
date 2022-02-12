@@ -3,7 +3,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:qr_scanner/providers/scan_list_controller.dart';
+import 'package:qr_scanner/controllers/scan_list_controller.dart';
 import 'package:qr_scanner/utils/utils.dart';
 import 'package:qr_scanner/widgets/circular_button.dart';
 

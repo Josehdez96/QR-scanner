@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_scanner/providers/navigation_controller.dart';
+import 'package:qr_scanner/controllers/navigation_controller.dart';
 
 class CustomNavigationBar extends GetView<NavigationController> {
   const CustomNavigationBar({Key? key}) : super(key: key);
