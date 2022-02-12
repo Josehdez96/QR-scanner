@@ -59,52 +59,57 @@ class _ScanButtonState extends State<ScanButton>
           ),
         ),
         Transform.translate(
-            offset: Offset.fromDirection(getRadiansFromDegree(225),
-                degOneTranslationAnimation.value * 80),
-            child: CircularButton(
-                width: 54,
-                height: 54,
-                color: Colors.deepPurple,
-                icon: const Icon(Icons.camera_alt_rounded),
-                onPressed: () async {
-                  String scannedData = await FlutterBarcodeScanner.scanBarcode(
-                      '#3D8BEF', 'Cancel', false, ScanMode.QR);
-
-                  if (scannedData == '-1') {
-                    // scanned was cancel
-                    return;
-                  }
-                  final newScan = await scanListController.newScan(scannedData);
-                  launchURL(context, newScan);
-                })),
+          offset: Offset.fromDirection(
+            getRadiansFromDegree(225),
+            degOneTranslationAnimation.value * 80,
+          ),
+          // Scan with camera
+          child: CircularButton(
+            width: 54,
+            height: 54,
+            color: Colors.deepPurple,
+            icon: const Icon(Icons.camera_alt_rounded),
+            onPressed: () async {
+              String scannedData = await FlutterBarcodeScanner.scanBarcode(
+                  '#3D8BEF', 'Cancel', false, ScanMode.QR);
+              if (scannedData == '-1') {
+                // scanned was cancel
+                return;
+              }
+              final newScan = await scanListController.newScan(scannedData);
+              launchURL(newScan);
+            },
+          ),
+        ),
+        // Scan from gallery
         Transform.translate(
-            offset: Offset.fromDirection(getRadiansFromDegree(315),
-                degOneTranslationAnimation.value * 80),
-            child: CircularButton(
-                width: 54,
-                height: 54,
-                color: Colors.deepPurple,
-                icon: const Icon(Icons.insert_photo),
-                onPressed: () async {
-                  final ImagePicker _picker = ImagePicker();
-                  final XFile? qrImageFile =
-                      await _picker.pickImage(source: ImageSource.gallery);
-
-                  if (qrImageFile == null) {
-                    // picking image was cancel
-                    return;
-                  }
-
-                  String? scannedData = await readBarCode(qrImageFile);
-
-                  if (scannedData == null) {
-                    // error reading QR
-                    return;
-                  }
-
-                  final newScan = await scanListController.newScan(scannedData);
-                  launchURL(context, newScan);
-                })),
+          offset: Offset.fromDirection(
+            getRadiansFromDegree(315),
+            degOneTranslationAnimation.value * 80,
+          ),
+          child: CircularButton(
+            width: 54,
+            height: 54,
+            color: Colors.deepPurple,
+            icon: const Icon(Icons.insert_photo),
+            onPressed: () async {
+              final ImagePicker _picker = ImagePicker();
+              final XFile? qrImageFile =
+                  await _picker.pickImage(source: ImageSource.gallery);
+              if (qrImageFile == null) {
+                // picking image was cancel
+                return;
+              }
+              String? scannedData = await readBarCode(qrImageFile);
+              if (scannedData == null) {
+                // error reading QR
+                return;
+              }
+              final newScan = await scanListController.newScan(scannedData);
+              launchURL(newScan);
+            },
+          ),
+        ),
         FloatingActionButton(
             child: const Icon(Icons.filter_center_focus),
             onPressed: () {

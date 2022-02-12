@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:qr_scanner/providers/db_provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -17,7 +18,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final scan = ModalRoute.of(context)?.settings.arguments as ScanModel;
+    final scan = Get.arguments as ScanModel;
     final CameraPosition _initialCameraPosition =
         CameraPosition(target: scan.getLatLng(), zoom: 17, tilt: 50);
 
