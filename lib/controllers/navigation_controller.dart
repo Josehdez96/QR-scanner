@@ -12,7 +12,7 @@ class NavigationController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print('1. onInit');
+    print('1. onInit from NavigationController');
   }
 
   // @override
