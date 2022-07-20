@@ -41,7 +41,7 @@ class _ScanButtonState extends State<ScanButton>
     final barcodeScanner = GoogleMlKit.vision.barcodeScanner();
     final List<Barcode> barcodes =
         await barcodeScanner.processImage(inputImage);
-    return barcodes[0].value.displayValue;
+    return barcodes[0].rawValue;
   }
 
   @override
