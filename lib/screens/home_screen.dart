@@ -22,10 +22,11 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-              onPressed: () {
-                scanListController.deleteAllScans();
-              },
-              icon: const Icon(Icons.delete_sharp))
+            onPressed: () {
+              scanListController.deleteAllScans();
+            },
+            icon: const Icon(Icons.delete_sharp),
+          )
         ],
       ),
       body: const _HomeScreenBody(),

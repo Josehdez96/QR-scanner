@@ -15,6 +15,8 @@ class NavigationController extends GetxController {
     print('1. onInit from NavigationController');
   }
 
+  // IGNORE the following unused methods
+
   // @override
   // bool get initialized => throw UnimplementedError();
 
