@@ -20,11 +20,12 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-              onPressed: () {
-                Provider.of<ScanListProvider>(context, listen: false)
-                    .deleteAllScans();
-              },
-              icon: const Icon(Icons.delete_sharp))
+            onPressed: () {
+              Provider.of<ScanListProvider>(context, listen: false)
+                  .deleteAllScans();
+            },
+            icon: const Icon(Icons.delete_sharp),
+          )
         ],
       ),
       body: const _HomeScreenBody(),
@@ -47,7 +48,7 @@ class _HomeScreenBody extends StatelessWidget {
     final scanListProvider =
         Provider.of<ScanListProvider>(context, listen: false);
 
-    print(currentIndex);
+    // print(currentIndex); // Just to check TODO: delete it
     switch (currentIndex) {
       case 0:
         scanListProvider.loadScansByType('geo');
