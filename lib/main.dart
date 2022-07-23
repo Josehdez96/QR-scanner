@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_scanner/bindings/navigation_binding.dart';
+import 'package:qr_scanner/bindings/basic_binding.dart';
 import 'package:qr_scanner/screens/home_screen.dart';
 import 'package:qr_scanner/screens/map_screen.dart';
 

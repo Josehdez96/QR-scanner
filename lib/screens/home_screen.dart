@@ -48,8 +48,6 @@ class _HomeScreenBody extends StatelessWidget {
     final navigationController = Get.put(NavigationController());
 
     return Obx(() {
-      print(
-          'HOLA SOY EL CURRENTINDEX: ${navigationController.selectedMenuOption}');
       switch (navigationController.selectedMenuOption) {
         case 0:
           scanListController.loadScansByType('geo');
