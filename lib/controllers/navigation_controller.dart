@@ -15,8 +15,7 @@ class NavigationController extends GetxController {
     print('1. onInit from NavigationController');
   }
 
-  // @override
-  // bool get initialized => throw UnimplementedError();
+  // IGNORE the following unused methods
 
   //  @override
   // void $configureLifeCycle() {

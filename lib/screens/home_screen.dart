@@ -22,10 +22,11 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-              onPressed: () {
-                scanListController.deleteAllScans();
-              },
-              icon: const Icon(Icons.delete_sharp))
+            onPressed: () {
+              scanListController.deleteAllScans();
+            },
+            icon: const Icon(Icons.delete_sharp),
+          )
         ],
       ),
       body: const _HomeScreenBody(),
@@ -47,8 +48,6 @@ class _HomeScreenBody extends StatelessWidget {
     final navigationController = Get.put(NavigationController());
 
     return Obx(() {
-      print(
-          'HOLA SOY EL CURRENTINDEX: ${navigationController.selectedMenuOption}');
       switch (navigationController.selectedMenuOption) {
         case 0:
           scanListController.loadScansByType('geo');
